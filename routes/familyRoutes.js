@@ -3,29 +3,29 @@ const router = express.Router();
 
 const {
   createMember,
-  getAllMembers,
   getApprovedMembers,
   getPendingMembers,
   approveMember,
   searchMember,
   updateImage,
-  updateMember
+  updateMember,
+  getAllMembers,
 } = require("../controllers/familyController");
 
-// 📌 TEST ROUTE - BASE
+// MAIN GET ROUTE
 router.get("/", getAllMembers);
 
-// 📌 PUBLIC ROUTES
+// Public
 router.post("/", createMember);
 router.get("/approved", getApprovedMembers);
 
-// 🔍 SEARCH
+// Search
 router.get("/search", searchMember);
 
-// 🔧 MOD / ADMIN
+// Admin
 router.get("/pending", getPendingMembers);
 router.put("/approve/:id", approveMember);
 router.put("/image/:id", updateImage);
 router.put("/update/:id", updateMember);
 
-module.exports = router;
+module.exports = router; // << FIXED
