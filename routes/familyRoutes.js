@@ -3,24 +3,26 @@ const router = express.Router();
 
 const {
   createMember,
+  getAllMembers,
   getApprovedMembers,
   getPendingMembers,
   approveMember,
   searchMember,
   updateImage,
-  updateMember,
-  getAllMembers
+  updateMember
 } = require("../controllers/familyController");
 
-// ⚡ MAIN
+// 📌 TEST ROUTE - BASE
 router.get("/", getAllMembers);
 
-// 🟢 Public
+// 📌 PUBLIC ROUTES
 router.post("/", createMember);
 router.get("/approved", getApprovedMembers);
+
+// 🔍 SEARCH
 router.get("/search", searchMember);
 
-// 🛠️ Admin / Manage
+// 🔧 MOD / ADMIN
 router.get("/pending", getPendingMembers);
 router.put("/approve/:id", approveMember);
 router.put("/image/:id", updateImage);
