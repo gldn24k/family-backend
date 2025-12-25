@@ -9,23 +9,26 @@ const {
   searchMember,
   updateImage,
   updateMember,
-  getAllMembers // 👈 Add this in your controller!
+  getAllMembers
 } = require("../controllers/familyController");
 
-// 👇 MAIN GET ROUTE (Fixes Cannot GET /api/family)
+// 📌 MAIN ROUTE to check server is working
 router.get("/", getAllMembers);
 
-// Public
+// ➕ Add Member
 router.post("/", createMember);
+
+// 📌 Approved Members
 router.get("/approved", getApprovedMembers);
 
-// 🔍 Search Route
+// 🔍 Search Member
 router.get("/search", searchMember);
 
-// MOD / Admin routes
+// ⚙ Admin / Modify Routes
 router.get("/pending", getPendingMembers);
 router.put("/approve/:id", approveMember);
 router.put("/image/:id", updateImage);
 router.put("/update/:id", updateMember);
 
+// 🚀 EXPORT ROUTER (VERY IMPORTANT)
 module.exports = router;
