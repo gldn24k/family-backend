@@ -157,7 +157,7 @@ const approveMember = async (req, res) => {
     res.status(500).json({ message: "Approval failed", error: error.message });
   }
 };// 📌 Get ALL members
-exports.getAllMembers = async (req, res) => {
+const getAllMembers = async (req, res) => {
   try {
     const members = await Family.find();
     res.json(members);
@@ -165,7 +165,6 @@ exports.getAllMembers = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
 
 // ================= EXPORT =================
 module.exports = {
@@ -176,4 +175,5 @@ module.exports = {
   updateImage,
   getPendingMembers,
   approveMember,
+  getAllMembers,
 };

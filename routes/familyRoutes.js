@@ -12,23 +12,18 @@ const {
   getAllMembers
 } = require("../controllers/familyController");
 
-// 📌 MAIN ROUTE to check server is working
+// ⚡ MAIN
 router.get("/", getAllMembers);
 
-// ➕ Add Member
+// 🟢 Public
 router.post("/", createMember);
-
-// 📌 Approved Members
 router.get("/approved", getApprovedMembers);
-
-// 🔍 Search Member
 router.get("/search", searchMember);
 
-// ⚙ Admin / Modify Routes
+// 🛠️ Admin / Manage
 router.get("/pending", getPendingMembers);
 router.put("/approve/:id", approveMember);
 router.put("/image/:id", updateImage);
 router.put("/update/:id", updateMember);
 
-// 🚀 EXPORT ROUTER (VERY IMPORTANT)
 module.exports = router;
