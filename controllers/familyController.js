@@ -156,7 +156,16 @@ const approveMember = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "Approval failed", error: error.message });
   }
+};// 📌 Get ALL members
+exports.getAllMembers = async (req, res) => {
+  try {
+    const members = await Family.find();
+    res.json(members);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
+
 
 // ================= EXPORT =================
 module.exports = {
